@@ -10,4 +10,4 @@ RUN mkdir node_modules/.cache
 RUN chown app:app node_modules/.cache
 
 USER app
-CMD npm start
+CMD ["npm", "start"]
