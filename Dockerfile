@@ -4,3 +4,5 @@ COPY . .
 # RUN npm install
 ENV API_URL=http://api.app.com/
 EXPOSE 3000
+RUN addgroup app && adduser -S app -G app
+USER app
