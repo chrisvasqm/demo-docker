@@ -1,8 +1,13 @@
 FROM node:14.16.0-alpine3.13
-RUN addgroup app && adduser -S app -G app
-USER app
 WORKDIR /app
 COPY . .
 RUN npm install
 ENV API_URL=http://api.app.com/
 EXPOSE 3000
+
+RUN addgroup app && adduser -S -G app app
+RUN mkdir node_modules/.cache
+RUN chown app:app node_modules/.cache
+
+USER app
+CMD npm start
