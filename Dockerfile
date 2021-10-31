@@ -1,7 +1,8 @@
 FROM node:14.16.0-alpine3.13
 WORKDIR /app
-COPY . .
+COPY package*.json /app/
 RUN npm install
+COPY . .
 ENV API_URL=http://api.app.com/
 EXPOSE 3000
 
