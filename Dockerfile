@@ -7,8 +7,10 @@ ENV API_URL=http://api.app.com/
 EXPOSE 3000
 
 RUN addgroup app && adduser -S -G app app
+RUN chown app: /app
 RUN mkdir node_modules/.cache
 RUN chown app:app node_modules/.cache
 
 USER app
+RUN chmod u+w /app
 CMD ["npm", "start"]
